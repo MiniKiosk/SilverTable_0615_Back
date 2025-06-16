@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 80px;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: left;
+    color: white;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+
+.menu-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menu-image {
+    width: 100%;
+    height: 100px;
+    background-color: #e0e0e0;
+    background-size: cover;
+    background-position: center;
+}
+
+.menu-info {
+    padding: 10px;
+}
+
+.menu-info h3 {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.menu-info p {
+    font-size: 0.9rem;
+    color: #e53935;
+    font-weight: bold;
+}
+
+.order-section {
+    display: flex;
+    background-color: #fff;
+    margin: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.order-list {
+    flex: 1;
+    padding: 15px;
+}
+
+.order-list h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.order-items {
+    min-height: 100px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.total-amount {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.voice-control {
+    width: 80px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mic-icon {
+    font-size: 2.5rem;
+    color: #666;
+}
+
+/* Voice Mode Indicator */
+.voice-mode-indicator {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.voice-mode-indicator.active {
+    display: flex;
+}
+
+.voice-mode-indicator .mic-pulse {
+    font-size: 6rem;
+    color: white;
+    background-color: #ff6b6b;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.voice-mode-indicator p {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.action-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background: #fff;
+    padding: 10px 15px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.voice-order {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.complete-order {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.material-icons {
+    font-size: 1.2rem;
+}
+
+/* Quantity Selection Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.quantity-selector button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.quantity-selector input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.modal-buttons .btn {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.confirm-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* 음성 인식 텍스트 스타일 제거 */

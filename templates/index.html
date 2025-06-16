@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24시돼지국밥 주문하기</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>24시돼지국밥</h1>
+        </header>
+        
+        <main class="menu-grid">
+            <!-- Menu Items -->
+            <div class="menu-item">
+                <div class="menu-image"></div>
+                <div class="menu-info">
+                    <h3>돼지국밥</h3>
+                    <p>9,000원</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-image"></div>
+                <div class="menu-info">
+                    <h3>순대국밥</h3>
+                    <p>10,000원</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-image"></div>
+                <div class="menu-info">
+                    <h3>내장국밥</h3>
+                    <p>9,500원</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-image"></div>
+                <div class="menu-info">
+                    <h3>섞어국밥</h3>
+                    <p>9,500원</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-image"></div>
+                <div class="menu-info">
+                    <h3>수육 반접시</h3>
+                    <p>13,000원</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-image"></div>
+                <div class="menu-info">
+                    <h3>수육 한접시</h3>
+                    <p>25,000원</p>
+                </div>
+            </div>
+        </main>
+
+        <div class="order-section">
+            <div class="voice-mode-indicator">
+                <span class="material-icons mic-pulse">mic</span>
+                <p>음성 인식 중... (5초 후 자동 종료)</p>
+            </div>
+            <div class="order-list">
+                <h3>주문 목록</h3>
+                <div class="order-items">
+                    <!-- Order items will be added here dynamically -->
+                </div>
+                <div class="total-amount">
+                    <span>최종 금액</span>
+                    <span class="amount">0원</span>
+                </div>
+            </div>
+            <div class="voice-control" style="display: none;">
+                <span class="material-icons mic-icon">mic</span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn voice-order">
+                <span class="material-icons">mic_none</span>
+                음성 주문
+            </button>
+            <button class="btn complete-order">
+                <span class="material-icons">check_circle</span>
+                주문 완료
+            </button>
+        </div>
+    </div>
+
+    <!-- Quantity Selection Modal -->
+    <div id="quantityModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalMenuName">메뉴 이름</h3>
+            <div class="quantity-selector">
+                <button id="decreaseQty">-</button>
+                <input type="number" id="itemQuantity" value="1" min="1" max="99">
+                <button id="increaseQty">+</button>
+            </div>
+            <div class="modal-buttons">
+                <button id="confirmAdd" class="btn confirm-btn">예, 추가할게요</button>
+                <button id="cancelAdd" class="btn cancel-btn">아니요</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
